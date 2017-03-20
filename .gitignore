@@ -1,0 +1,6 @@
+*.tfstate
+*.tfplan
+*.backup
+*.bkp
+*.AFTER_LAUNCH
+provider-credentials.tfvars
