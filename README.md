@@ -53,7 +53,6 @@ To make changes, like for example update or create a Security Group, we edit the
 
 ## Deleting the Infrastructure
 
-```  
 To destroy the whole VPC we run:  
 ```
 $ terraform destroy -var-file variables.tfvars -var-file provider-credentials.tfvars -force
