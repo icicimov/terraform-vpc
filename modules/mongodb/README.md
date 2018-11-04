@@ -13,7 +13,6 @@ module "mongo" {
     subnet_ids     = ["${module.private-subnets.subnet_ids}"]
     zone_id        = "${module.vpc.route53_zone}"
     domain         = "${lower(var.vpc["tag"])}.${var.enc_domain_int}"
-    data_center    = "${module.consul.consul_dc}"
     mydb           = "${var.mydb}"
 }
 
