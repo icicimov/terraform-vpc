@@ -2,6 +2,7 @@
 variable "mydb" {
     type    = "map"
     default = {
+        instance_type     = ""
         volume_size       = ""
         volume_type       = ""
         volume_device     = ""
@@ -18,7 +19,6 @@ variable "vpc_id"   {}
 variable "cidr"     {}
 variable "region"   {}
 variable "image"    {}
-variable "instance_type" {}
 variable "key_name" {}
 variable "zone_id"  {}
 variable "domain"   {}
@@ -77,7 +77,7 @@ resource "aws_autoscaling_group" "mongo" {
 resource "aws_launch_configuration" "mongo" {
     name_prefix          = "${var.tag}-mongo-"
     image_id             = "${var.image}"
-    instance_type        = "${var.instance_type}"
+    instance_type        = "${var.mydb["instance_type"]}"
     iam_instance_profile = "${aws_iam_instance_profile.mongo.name}"
     key_name             = "${var.key_name}"
     security_groups      = ["${aws_security_group.mongo.id}"]

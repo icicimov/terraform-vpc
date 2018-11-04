@@ -9,7 +9,6 @@ module "mongo" {
     zones          = ["${split(",", lookup(var.azs, var.provider["region"]))}"]
     image          = "${lookup(var.images-ubuntu-trusty, var.provider["region"])}"
     key_name       = "${var.key_name}"
-    instance_type  = "${var.mydb["instance_type"]}"
     vpc_id         = "${module.vpc.vpc_id}"
     subnet_ids     = ["${module.private-subnets.subnet_ids}"]
     zone_id        = "${module.vpc.route53_zone}"
